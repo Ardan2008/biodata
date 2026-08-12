@@ -6,12 +6,12 @@ import { biodata } from "../data/biodata.js";
 const initials = computed(
   () =>
     biodata.identitas.namaLengkap
-      .split(" ") // pecah nama jadi array per kata, misal "Budi Santoso" -> ["Budi", "Santoso"]
+      .split(" ") // pecah nama jadi array per kata, misal "Ardan Ramadhan" -> ["Ardan", "Ramadhan"]
       .filter(Boolean) // buang elemen kosong/falsy (misal jika ada spasi ganda jadi string kosong "")
-      .slice(0, 2) // ambil maksimal 2 kata pertama saja, misal ["Budi", "Santoso"]
-      .map((w) => w[0]) // ambil huruf pertama dari tiap kata, jadi ["B", "S"]
-      .join("") // gabungkan huruf-huruf itu jadi satu string, jadi "BS"
-      .toUpperCase(), // ubah jadi huruf kapital semua, hasil akhir "BS"
+      .slice(0, 2) // ambil maksimal 2 kata pertama saja, misal ["Ardan", "Ramadhan"]
+      .map((w) => w[0]) // ambil huruf pertama dari tiap kata, jadi ["A", "R"]
+      .join("") // gabungkan huruf-huruf itu jadi satu string, jadi "AR"
+      .toUpperCase(), // ubah jadi huruf kapital semua, hasil akhir "AR"
 );
 
 // State untuk menandai apakah user sudah pernah scroll konten utama (dipakai untuk toggle overlay & indikator scroll)
@@ -39,7 +39,7 @@ const handleScroll = (e) => {
     <div
       class="w-full max-w-250 h-auto md:h-[86vh] md:max-h-205 rounded-[28px] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] ring-1 ring-neutral-900/5 grid grid-cols-1 md:grid-cols-[320px_1fr] bg-white relative"
     >
-      <!-- ==================== Sidebar Kiri ==================== -->
+      <!-- Sidebar Kiri -->
       <aside
         class="relative bg-neutral-900 text-white px-6 py-7 md:px-8 md:py-8 flex flex-col justify-between overflow-y-auto sidebar-no-scrollbar h-full"
       >
@@ -52,7 +52,7 @@ const handleScroll = (e) => {
         ></div>
 
         <div class="relative">
-          <!-- Foto Profil: tampilkan foto jika ada url, jika tidak tampilkan inisial -->
+          <!-- Foto Profil -->
           <div
             class="relative w-20 h-20 rounded-full ring-4 ring-white/10 flex items-center justify-center text-xl font-semibold tracking-wide overflow-hidden bg-white text-neutral-900 mb-4 shadow-lg"
           >
